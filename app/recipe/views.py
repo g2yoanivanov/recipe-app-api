@@ -4,7 +4,7 @@ Views for the recipe APIs
 from rest_framework import (
     viewsets,
     mixins,
-    status
+    status,
 )
 
 from rest_framework.decorators import action
@@ -45,7 +45,7 @@ class RecipeViewSet(viewsets.ModelViewSet):
         serializer.save(user=self.request.user)
 
     @action(methods=['POST'], detail=True, url_path='upload_image')
-    def ulpoad_image(self, request, pk=None):
+    def upload_image(self, request, pk=None):
         """Upload an image to a recipe"""
         recipe = self.get_object()
         serializer = self.get_serializer(recipe, data=request.data)
